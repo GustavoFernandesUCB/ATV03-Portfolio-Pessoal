@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Gustavo Fernandes</title>
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #007bff;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 2.0em;
+            margin: 20px 0 10px;
+            font-weight: 700;
+            color: #0056b3;
+        }
+
+        h3 {
+            margin: 20px 0 10px;
+            font-weight: 700;
+            color: #0056b3;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            transition: color 0.3s, transform 0.3s;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ffc107;
+            transform: scale(1.1);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        section {
+            margin: 40px 0;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #007bff;
+            color: #ffffff;
+            position: relative;
+        }
+
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        form button {
+            padding: 12px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        .contato-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contato-info h3 {
+            margin: 10px 0;
+        }
+
+        .contato-info p {
+            margin: 5px 0;
+        }
+
+        .redes-sociais {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .redes-sociais a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .redes-sociais a:hover {
+            color: #ffc107;
+        }
+
+        .fas, .fab {
+            margin-right: 5px;
+        }
+
+        .habilidades-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .habilidade {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .habilidade:hover {
+            transform: translateY(-5px);
+        }
+
+        .habilidade-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .projeto {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            transition: box-shadow 0.3s;
+        }
+
+        .projeto:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .projeto img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .modal {
+            display: none; /* Oculta por padrão */
+            position: fixed; /* Fixa na tela */
+            z-index: 1; /* Fica na frente */
+            left: 0;
+            top: 0;
+            width: 100%; /* Largura total */
+            height: 100%; /* Altura total */
+            overflow: auto; /* Habilita rolagem se necessário */
+            background-color: rgb(0,0,0); /* Fundo preto */
+            background-color: rgba(0,0,0,0.4); /* Fundo preto com opacidade */
+            padding-top: 60px; /* Espaçamento acima */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 15% da parte superior e centralizado */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Largura */
+            max-width: 600px; /* Largura máxima */
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            header, footer {
+                padding: 10px;
+            }
+
+            .habilidade {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'pt',
+                includedLanguages: 'en,es,fr,de,it',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Portfólio de Gustavo Fernandes</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre Mim</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            <p>Olá! Meu nome é Gustavo Fernandes e sou universitário, atualmente cursando Análise e Desenvolvimento de Sistemas. Acredito que essa área é fundamental para moldar o futuro e estou empolgado com as inúmeras possibilidades que ela oferece. Estou sempre em busca de novos desafios e aprendizados, pois sei que cada projeto é uma oportunidade de aprimorar minhas habilidades e estou ansioso para me aprofundar em novas tecnologias e contribuir para soluções inovadoras que façam a diferença no mundo. Se você tem uma ideia ou projeto, vamos conversar!</p>
+            <img src="foto-gfgb1993.png" alt="Minha Foto" class="minha-foto" loading="lazy"/>
+            <style>
+              .minha-foto {
+            width: 300px; /* Largura da imagem */
+            height: 300px; /* Altura da imagem */
+            border-radius: 90%; /* Borda arredondada */
+            object-fit: cover; /* Para manter a proporção */
+        }
+            </style>
+        </section>
+
+        <section id="habilidades">
+            <h2>Habilidades</h2>
+            <div class="habilidades-container">
+                <div class="habilidade">
+                    <img src="html5.png" alt="HTML5" class="habilidade-icon">
+                    <h3>HTML5</h3>
+                    <p>Markup para construção de páginas web.</p>
+                </div>
+                <div class="habilidade">
+                    <img src="css3.png" alt="CSS3" class="habilidade-icon">
+                    <h3>CSS3</h3>
+                    <p>Estilização de páginas web com design responsivo.</p>
+                </div>
+                <div class="habilidade">
+                    <img src="javascript.png" alt="JavaScript" class="habilidade-icon">
+                    <h3>JavaScript</h3>
+                    <p>Programação do lado do cliente para interatividade.</p>
+                </div>
+                <div class="habilidade">
+                    <img src="react.png" alt="React" class="habilidade-icon">
+                    <h3>React</h3>
+                    <p>Biblioteca JavaScript para construção de interfaces.</p>
+                </div>
+                <div class="habilidade">
+                    <img src="git.png" alt="Git" class="habilidade-icon">
+                    <h3>Git</h3>
+                    <p>Controle de versão para gerenciar projetos.</p>
+                </div>
+                <div class="habilidade">
+                    <img src="github.png" alt="GitHub" class="habilidade-icon">
+                    <h3>GitHub</h3>
+                    <p>Plataforma de hospedagem de código e colaboração.</p>
+                </div>
+                <div class="habilidade">
+                    <img src="agile.png" alt="Metodologias Ágeis" class="habilidade-icon">
+                    <h3>Metodologias Ágeis</h3>
+                    <p>Gestão de projetos com foco em entregas rápidas e adaptativas.</p>
+                </div>
+            </div>
+        </section>        
+
+        <section id="projetos">
+            <h2>Projetos</h2>
+            <div class="projeto">
+                <h3>Projeto 1: Formulário Simples</h3>
+                <p>Descrição: Formulário simples de cadastro de funcionário.</p>
+                <p>Tecnologias: HTML</p>
+                <a href="https://github.com/GustavoFernandesUCB/ATV02-Formularios" target="_blank">Repositório GitHub</a>
+                <img src="formulario.png" alt="Captura de tela do Formulário Simples" loading="lazy" />
+            </div>
+            <!-- Adicione mais projetos conforme necessário -->
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à vontade para entrar em contato comigo através do formulário abaixo ou pelas redes sociais!</p>
+            
+            <form>
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" placeholder="Sua mensagem..." required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+            
+            <div class="contato-info">
+                <h3>Outras Formas de Contato</h3>
+                <p>
+                    <i class="fas fa-phone"></i> (61) 98121-2256<br>
+                    <i class="fas fa-envelope"></i> <a href="mailto:jacketoid.net@gmail.com">jacketoid.net@gmail.com</a>
+                </p>
+                <h3>Redes Sociais</h3>
+                <div class="redes-sociais">
+                    <a href="https://github.com/GustavoFernandesUCB" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2024 Gustavo Fernandes. Todos os direitos reservados.</p>
+        <p>
+            <a href="javascript:void(0);" onclick="openModal('privacyModal')">Políticas de privacidade</a> | 
+            <a href="javascript:void(0);" onclick="openModal('termsModal')">Termos de uso</a>
+        </p>
+    </footer>
+
+    <!-- Modais -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('privacyModal')">&times;</span>
+            <h3>Políticas de Privacidade</h3>
+            <p>A sua privacidade é importante para nós. Esta política descreve como coletamos, usamos e protegemos suas informações pessoais.</p>
+            <h4>Informações que Coletamos</h4>
+            <p>Coletamos informações que você nos fornece diretamente, como seu nome, e-mail e mensagem quando você preenche o formulário de contato.</p>
+            <h4>Como Usamos Suas Informações</h4>
+            <p>Utilizamos suas informações para responder às suas perguntas, oferecer suporte e informá-lo sobre atualizações e oportunidades relevantes.</p>
+            <h4>Proteção das Suas Informações</h4>
+            <p>Tomamos precauções razoáveis para proteger suas informações pessoais, mas não podemos garantir segurança absoluta.</p>
+            <h4>Compartilhamento de Informações</h4>
+            <p>Não compartilhamos suas informações pessoais com terceiros, exceto quando necessário para cumprir a lei.</p>
+            <h4>Alterações na Política</h4>
+            <p>Podemos atualizar esta política de privacidade periodicamente. As alterações serão publicadas nesta página.</p>
+        </div>
+    </div>
+
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('termsModal')">&times;</span>
+            <h3>Termos de Uso</h3>
+            <p>Estes termos regem o uso do nosso serviço. Ao utilizar nosso site, você concorda em cumprir e ser regido por esses termos.</p>
+            <h4>Uso do Site</h4>
+            <p>Você deve usar nosso site apenas para fins legais e de acordo com as leis aplicáveis.</p>
+            <h4>Responsabilidade</h4>
+            <p>Não somos responsáveis por qualquer dano decorrente do uso ou incapacidade de usar nosso site.</p>
+            <h4>Modificações</h4>
+            <p>Reservamo-nos o direito de modificar estes termos a qualquer momento. As alterações entrarão em vigor assim que publicadas nesta página.</p>
+            <h4>Legislação Aplicável</h4>
+            <p>Estes termos são regidos pelas leis do Brasil.</p>
+        </div>
+    </div>
+
+</body>
+</html>
